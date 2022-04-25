@@ -19,14 +19,15 @@ function Card() {
 	// 3. show the data
 
 
-    const [weather, setWeather] = useState (undefined)
+    const [weather, setWeather] = useState (undefined);
 
-    // call the data
+    // call the data. when we do some change, we have to call the setWeather inside the useEffect . Otherwise it will be recalled uncontinously
+
     useEffect (() => {
         fetchWeatherApi();
     }, []);
 
-    const url = "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=18576d86977540378287181828946c69"
+    const url = "https://api.openweathermap.org/data/2.5/weather?lat=42.188111&lon=-8.803260&appid=18576d86977540378287181828946c69"
     const fetchWeatherApi = () => 
         fetch (url)
 
